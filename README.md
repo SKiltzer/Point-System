@@ -265,6 +265,9 @@ This vault uses several powerful Obsidian plugins. Below are links intended to p
 - **[Meta-Bind](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/)** - Interactive buttons and progress bars  
   - Used for: Point increment/decrement buttons, progress visualization
   - Settings: JavaScript execution, button styling
+- **[JS-Engine](https://www.moritzjung.dev/obsidian-js-engine-plugin-docs/)** - Javascript functionality
+  - Ties directly to Meta-Bind
+  - Used to call Javascript functions with buttons
 - **[Dataview](https://blacksmithgu.github.io/obsidian-dataview/)** - Live data queries and tables
   - Used for: Dashboard tables, progress tracking, weekly summaries
   - Settings: Inline queries, JavaScript queries enabled
