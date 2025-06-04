@@ -253,11 +253,7 @@ This system is designed to be:
 
 ## 📚 Plugin Documentation & Resources
 This vault uses several powerful Obsidian plugins. Below are links intended to provide additional resources:
-[Templater](https://silentvoid13.github.io/Templater/introduction.html)
-[Meta-Bind](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/)
-	Related: [JS-Engine](https://www.moritzjung.dev/obsidian-js-engine-plugin-docs/)
-[Dataview](https://blacksmithgu.github.io/obsidian-dataview/)
-[Periodic Notes](https://github.com/liamcain/obsidian-periodic-notes)
+
 ### Core Plugins Used:
 - **[Templater](https://silentvoid13.github.io/Templater/)** - Dynamic note templates and automation
   - Used for: Daily/weekly note creation, dynamic dates, user functions
