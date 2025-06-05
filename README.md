@@ -8,22 +8,22 @@ This vault comes pre-configured with everything you need:
 - ✅ **Dashboard** (Real-time progress visualization)
 - ✅ **Sample Data** (Example logged days to test functionality)
 ## 🚀 Quick Start Guide
-
-### Step 1: Open the Vault
 1. **Download and extract** the vault folder
-2. **Open Obsidian**
-3. **"Open folder as vault"** → Select the extracted folder
-4. **Trust author and enable plugins** when prompted
-### Step 2: Customize Your Goal
-1. **Open**: `Point System.md` to review the point structure
-2. **Edit the goal** in daily note templates if needed (default: 650 points for roller blades as this was the goal in our case)
-3. **Modify point values** for chores/behaviors if desired
-### Step 3: Start Tracking
-1. **Create daily note**: Use Command Palette → "Periodic Notes: Open daily note"
-2. **Track points**: Click buttons throughout the day as tasks are completed
-3. **End of day**: Click "Log Day" button to finalize and calculate bonuses
-4. **Weekly review**: Use Command Palette → "Periodic Notes: Open weekly note" on Sundays
-
+2. **"Open folder as vault"** → Select the extracted folder
+3. **Trust author and enable plugins** when prompted
+4. Customize goals by editing the daily note templates (single goal or tiered)
+    - **Edit the goal** in daily note templates if needed (default: 650 points for roller blades as this was the goal in our case)
+    - Point values can also be **modified** within the daily templates by editing the button configurations and list values
+### Tracking Points
+1. **Create daily note**: two methods
+    - Use Command Palette → "Periodic Notes: Open daily note"
+    - Disable Daily Notes **Core Plugin** and use *Open Today* in the ribbon menu (Hidden by default)
+2. Buttons are placed next to each item and can be used to add or subtract points throughout the day as tasks are completed.
+    - For unlisted items that warrant point addition or losses, the generic controls located at the top of the page can be used
+4. **End of day**: Click "Log Day" button to finalize and calculate bonuses
+5. **Weekly review**: Use Command Palette → "Periodic Notes: Open weekly note" on Sundays (or whatever day has been designated as the end of the week)
+---
+## Vault Structure
 Everything is fully configured to be used as an "out-of-the-box" solution. However, if anything is adjusted, below is the FULL vault file structure:
 ````markdown
 📁 Point-Tracking-Vault/
@@ -78,30 +78,9 @@ Everything is fully configured to be used as an "out-of-the-box" solution. Howev
     ├── 📄 Customization Examples.md      ← How to modify goals/points
     └── 📄 Plugin Configurations.md       ← Plugin settings backup
 ````
-## 📋 Daily Workflow
-
-### Morning:
-- **Open today's daily note** (auto-created by Periodic Notes)
-- **Review goals** and point opportunities
-- **Start with 20 base points**
-### Throughout the Day:
-- **Click chore buttons** when tasks are completed (+3 to +10 points)
-- **Click behavior buttons** for good attitudes (+1 to +3 points)
-- **Subtract points** for negative behaviors (-1 to -3 points)
-- **Watch real-time progress** on the progress bar
-### Evening (Before 22:00 recommended):
-- **Review daily total** and discuss the day
-- **Click "Log Day"** to finalize points and calculate tier/bonuses
-- **Celebrate achievements** and plan for tomorrow
-### Weekly (Sundays):
-- **Create weekly summary** using Periodic Notes
-- **Complete reflection questions** together
-- **Review treats earned** and plan rewards
-- **Set goals** for the upcoming week
-
+---
 ## 🎯 Point System Overview
-### Daily Tiers:
-
+### Daily Tiers (values can be adjusted to meet individual needs):
 - **< 20 points**: Needs Work (resets streaks)
 - **21-30 points**: Solid Day
 - **31-39 points**: Great Day (streak bonus after 3 days)
@@ -114,38 +93,33 @@ Everything is fully configured to be used as an "out-of-the-box" solution. Howev
 - **Great Day Streak (3+ days)**: Popsicle + bonus points
 - **Rockstar Streak (3+ days)**: Ice cream + bonus points
 - **Solid Day Streak (3-5 days)**: Popsicle (one-time bonus)
-
+---
 ## 🔧 Customization Guide
 
 ### Changing the Main Goal
 
 #### Option 1: Simple Goal Change
-1. **Open**: `Templates/Daily Note Template.md`
-2. **Find**: The progress bar section
-3. **Change**: `maxValue(650)` to your new point total
-4. **Update**: Goal name in the template (change "🛼 Roller Blades" to your reward)
+1. **Open** `Templates/Daily Note Template.md`
+    - find the progress bar section and change the `maxValue(650)` to the desired point total
+    - **Update** the goal name in the template (change "🛼 Roller Blades" to your reward)
 #### Option 2: Multiple Goals (Advanced)
-1. **Use**: The tiered goals template provided in the artifacts
-2. **Replace**: The frontmatter in daily template with multi-goal structure
-3. **Customize**: Goal names, point values, and rewards in the frontmatter
-
+1. **Open** `Templates/Tiered - Daily Note Template.md`
+    - **Replace** the frontmatter in daily template with multi-goal structure (must be done in source mode)
+    - **Customize** Goal names, point values, and rewards in the frontmatter
+        - **Note**: The point structure is already present so best practice would be to only modify names and values. If others are added, copy existing ones as templates
+---
 ### Modifying Point Values
 
-#### Chore Points:
 1. **Open**: `Templates/Daily Note Template.md`
-2. **Find**: The chore section
-3. **Edit**: Button values and descriptions    
+2. **Find**: The intended point section (Point Tasks, Good Attitude, Point Loss) and edit the button values and descriptions    
     ```markdown
     - [ ] **Dusting** `BUTTON[add-3]` (3 points)
-    ```    
-    - Change `add-3` to `add-5` for 5 points
-    - Update the description text
-#### Behavior Points:
-1. **Locate**: The positive/negative behavior sections
-2. **Modify**: Button values as needed
-3. **Add new behaviors**: Copy existing button format
-
+    ```
+    - Update the description text as needed
+    - **Note**: If a value is needed and there is no button with the desired amount, it will requre the addition of a new button. Functionality is described in the next section.
+---
 ### Adding New Buttons:
+1. Button configurations are located directly beneath the *Controls* options at the top of each note template. These are best viewed in source mode, as they are hidden by default.
 ````markdown
 ```meta-bind-button
 label: "7"
@@ -161,20 +135,18 @@ actions:
 ```
 Then reference with: `BUTTON[add-7]`
 ````
-
+---
 ## 📊 Monitoring Progress
 
-### Progress Dashboards
+### Dashboards
 - **Location**: `Dashboards/` folder
-- **Main Dashboard**: `Dashboards/Progress Dashboard.md` - Complete progress overview
-- **Weekly Overview**: `Dashboards/Weekly Overview.md` - Weekly performance summary  
+#### Progress Report Dashboards
+- For single goal: `Dashboards/Single Goal Progress Report.md` - Complete progress overview
+- For multiple goals: `Dashboards/Multi-Goal Progress Report.md` - Complete progress overview
+- **Weekly Overview**: `Dashboards/Weekly Overview.md` - Weekly performance summary
 - **Achievement History**: `Dashboards/Achievement History.md` - Long-term tracking
-- **Updates**: Automatically as days are logged
-### Key Metrics to Watch:
-- **Daily Point Averages**: Aim for 25+ points per day
-- **Streak Maintenance**: Look for consistent tier achievements
-- **Weekly Patterns**: Identify best/worst days of week
-- **Bonus Point Earnings**: Track streak bonus accumulation
+- **Updates**: Automatically as days are logged. Each progress report dashboard maintains a log of the previous 14 daily notes
+--- 
 ## 🛠️ Troubleshooting
 
 ### Common Issues:
@@ -204,28 +176,17 @@ Then reference with: `BUTTON[add-7]`
 - **Template folder**: `Templates/`
 - **Script files folder**: `Scripts/templater/`
 - **User Functions**: Enabled
+- If templates are not called on note creation:
+    - **Enable**: *Trigger Templater on new file creation* and *Folder Templates*
+    - **Add**: Template path and Folder path as folder templates
 #### Periodic Notes:
 - **Daily Notes**: Enabled, folder `Daily Notes/`, template `Templates/Daily Note Template.md`
 - **Weekly Notes**: Enabled, folder `Weekly Summaries/`, template `Templates/Weekly Summary Template.md`
 #### Meta-Bind:
 - **JavaScript**: Enabled
 - **Files referenced**: Relative to vault root in `Scripts/` folder
-## 🎮 Advanced Features
-
-### Tiered Goals System:
-- **Multiple simultaneous goals** with different point thresholds
-- **Progressive rewards** to maintain motivation
-- **Customizable reward types** and point values
-### Automated Tracking:
-- **Streak calculations** happen automatically
-- **Bonus point application** based on achievement patterns
-- **Weekly statistics** compilation and reset
-### Family Bonding Features:
-- **Weekly reflection questions** promote discussion
-- **Parent involvement prompts** in weekly summaries
-- **Goal-setting collaboration** tools
-
-## 📝 Tips for Success
+---
+## 📝 Useful Tips
 
 ### For Parents:
 - **Review daily notes together** - discuss the day's achievements
@@ -243,18 +204,9 @@ Then reference with: `BUTTON[add-7]`
 - **Monitor file organization** - Keep daily notes in proper folders
 - **Update goals periodically** - Adjust targets as skills improve
 - **Archive completed goals** - Keep motivation high with new challenges
-
-## 🔄 Version History & Updates
-This system is designed to be:
-- **Self-contained** - All dependencies included
-- **Customizable** - Easy to modify without breaking functionality
-- **Scalable** - Can grow with changing needs and goals
-- **Educational** - Teaches responsibility, goal-setting, and self-reflection
-
-## 📚 Plugin Documentation & Resources
+---
+## 📚 Plugin Documentation
 This vault uses several powerful Obsidian plugins. Below are links intended to provide additional resources:
-
-### Core Plugins Used:
 - **[Templater](https://silentvoid13.github.io/Templater/)** - Dynamic note templates and automation
   - Used for: Daily/weekly note creation, dynamic dates, user functions
   - Settings: Template folder, script folder configuration
@@ -273,17 +225,22 @@ This vault uses several powerful Obsidian plugins. Below are links intended to p
 - **[DB Folder](https://rafaelgb.github.io/obsidian-db-folder/)** - Enhanced folder organization (Optional)
   - Used for: Better organization of daily notes folder
   - Settings: Folder database configuration
-### Additional Resources:
+---
+## Additional Resources:
 - **[Obsidian Help](https://help.obsidian.md/)** - Official Obsidian documentation
 - **[YAML Frontmatter](https://yaml.org/spec/1.2.2/)** - Understanding note metadata
 - **[Markdown Guide](https://www.markdownguide.org/)** - Markdown syntax reference
-
+---
 ## 📞 Support
-If you need help customizing the system:
-1. **Check troubleshooting section** above
-2. **Review Obsidian plugin documentation** for advanced features
-3. **Modify gradually** - test small changes before major updates
-4. **Keep backups** - Always save working versions before experimenting
-
+### Bugs
+- Create new issue - Add **Bug** label
+    - Provide a description of the issue, including what note is affected and when it occurs
+    - Error messages produced
+    - Output of the developer console
+    - Any additional information or attachments
+### Additional Features
+- Create new issue - Add **Enhancement** label
+    - Provide a thorough description of the desired feature
+    - Any additional information or attachments
 ---
 **Happy tracking! 🎉 May all your goals be achieved through consistent effort and positive habits!**
